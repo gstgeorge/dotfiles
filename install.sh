@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 deploy()
 {
@@ -21,7 +21,7 @@ package_installed()
 # bashrc
 deploy .bashrc
 deploy .bash_aliases
-touch ~/.bash_overrides
+touch $HOME/.bash_overrides
 
 # vim
 deploy .vimrc
