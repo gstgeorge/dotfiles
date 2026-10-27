@@ -71,7 +71,6 @@ set_prompt ()
 
 PROMPT_COMMAND='set_prompt'
 
-
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -155,15 +154,6 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -175,12 +165,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#neofetch
-neofetch
+# Fastfetch
+fastfetch
 
-# export scripts to path
-if [[ -d ~/scripts ]]
-then
+# Export scripts to path
+if [ -d ~/scripts ]; then
     export PATH=~/scripts:$PATH
 fi
 
@@ -198,4 +187,18 @@ fi
 # fi
 #unset __conda_setup
 # <<< conda initialize <<<
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Overrides definition
+if [ -f ~/.bash_overrides ]; then
+	. ~/.bash_overrides
+fi
 
